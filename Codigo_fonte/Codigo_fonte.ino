@@ -26,6 +26,9 @@ void setup() {
 }
 
 void ligarBomba(bool VARIAVEL) {
+  //LIMPAR A TELA;
+  TELA.clear();
+  //VERIFICAR SE É PARA LIGAR OU DESLIGAR A BOMBA D'AQUA;
   if(VARIAVEL) {
     //LIGAR BOMBA D'AQUA
     digitalWrite(RELE1, HIGH);
