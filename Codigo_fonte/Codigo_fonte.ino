@@ -10,19 +10,23 @@ unsigned int RELE1 = 7;
 unsigned long UM_SEGUNDO = 1000L;
 unsigned long UM_MINUTO = UM_SEGUNDO * 60;
 unsigned long UMA_HORA = UM_MINUTO * 60;
+bool CONFIGURAR_O_RELOGIO = true;
 
 void setup() {
   //LIGAR A TELA LCD 16X2;
   TELA.begin(16, 2);
+  TELA.print("Ola mundo! :)");
 
   //DEFINIR COMO SAIDA O PINO DO RELE;
   pinMode(RELE1, OUTPUT);
   
   //LIGAR O RELOGIO, E DEFINIR HORA E DATA COM OS DADOS ABAIXO;
-  RELOGIO.halt(false);
-  RELOGIO.setDOW(FRIDAY);
-  RELOGIO.setDate(27, 8, 2018);
-  RELOGIO.setTime(16, 31, 10);
+  if(CONFIGURAR_O_RELOGIO) {
+    RELOGIO.halt(false);
+    RELOGIO.setDOW(FRIDAY);
+    RELOGIO.setDate(27, 8, 2018);
+    RELOGIO.setTime(16, 31, 10);
+  }
 }
 
 void ligarBomba(bool VARIAVEL) {
