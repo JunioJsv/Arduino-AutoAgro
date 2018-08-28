@@ -22,6 +22,7 @@ void setup() {
   
   //LIGAR A TELA LCD 16X2;
   TELA.begin(16, 2);
+  TELA.print("Ola mundo :)");
 
   //DEFINIR COMO SAIDA O PINO DO RELE;
   pinMode(RELE1, OUTPUT);
@@ -34,6 +35,9 @@ void setup() {
     RELOGIO.setDate(27, 8, 2018);
     RELOGIO.setTime(16, 31, 10);
   }
+
+  RELOGIO.setSQWRate(SQW_RATE_1);
+  RELOGIO.enableSQW(true);
 }
 
 void loop() {
