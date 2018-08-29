@@ -44,7 +44,10 @@ void loop() {
   //PEGAR O NIVEL DA AQUA;
   int VALOR_DA_BOIA = analogRead(BOIA);
   
-  if(RELOGIO.getTimeStr(FORMAT_LONG) == "07:00:00" || "17:00:00") {
+  //HORARIO ATUAL;
+  String AGORA = RELOGIO.getTimeStr(FORMAT_LONG);
+  
+  if(AGORA == "07:00:00" || "17:00:00") {
     TELA.setCursor(0,0);
     TELA.clear();
     digitalWrite(RELE1, LOW);
