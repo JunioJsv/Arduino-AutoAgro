@@ -62,10 +62,10 @@ void loop() {
   TELA.print(AGORA);
 
   //IRRIGAÇÃO = RELE2, REGISTRO = RELE3;
-  if(AGORA == "07:00:00") {
+  if(AGORA == "07:00:00" || AGORA == "17:00:00") {
     //ABRIR REGISTRO;
     digitalWrite(RELE3, LOW);
-    delay(UM_SEGUNDO*5);
+    delay(UM_SEGUNDO*5+UM_SEGUNDO/2);
     digitalWrite(RELE3, HIGH);
 
     //LIGAR BOMBA DE IRRIGAÇÃO;
@@ -75,25 +75,9 @@ void loop() {
     
     //FECHAR REGISTRO;
     digitalWrite(RELE3, LOW);
-    delay(UM_SEGUNDO*5);
+    delay(UM_SEGUNDO*5+UM_SEGUNDO/2);
     digitalWrite(RELE3, HIGH);
     
-  } else if(AGORA == "17:00:00") {
-    //ABRIR REGISTRO;
-    digitalWrite(RELE3, LOW);
-    delay(UM_SEGUNDO*5);
-    digitalWrite(RELE3, HIGH);
-
-    //LIGAR BOMBA DE IRRIGAÇÃO;
-    digitalWrite(RELE2, LOW);
-    delay(UM_MINUTO);
-    digitalWrite(RELE2, HIGH);
-    
-    //FECHAR REGISTRO;
-    digitalWrite(RELE3, LOW);
-    delay(UM_SEGUNDO*5);
-    digitalWrite(RELE3, HIGH);
-
   }
   
   //RESERVATORIO = RELE1;
