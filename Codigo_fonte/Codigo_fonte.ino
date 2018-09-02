@@ -28,7 +28,7 @@ void setup() {
   
   //LIGAR A TELA LCD 16X2;
   TELA.begin(16, 2);
-  TELA.print("Ola mundo :)");
+  TELA.print("Ola mundo :D");
   delay(UM_SEGUNDO*2);
 
   //DEFINIR COMO SAIDA O PINO DO RELE;
@@ -57,9 +57,9 @@ void loop() {
   String AGORA = RELOGIO.getTimeStr(FORMAT_LONG);
   Serial.println(AGORA);
   TELA.clear();
-  TELA.print("HORARIO:");
+  TELA.print("AUTO - AGRO");
   TELA.setCursor(0,1);
-  TELA.print(AGORA);
+  TELA.print("HORA: " + AGORA);
 
   //IRRIGAÇÃO = RELE2, REGISTRO = RELE3;
   if(AGORA == "07:00:00" || AGORA == "17:00:00") {
