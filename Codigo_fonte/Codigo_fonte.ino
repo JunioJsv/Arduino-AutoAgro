@@ -76,7 +76,7 @@ void loop() {
     digitalWrite(RELE3, LOW);
     TELA.clear();
     TELA.print("REGISTRO: ON");
-    delay(UM_SEGUNDO*6);
+    delay(UM_SEGUNDO*5+275);
     digitalWrite(RELE3, HIGH);
 
     //LIGAR BOMBA DE IRRIGAÇÃO;
@@ -90,7 +90,7 @@ void loop() {
     digitalWrite(RELE3, LOW);
     TELA.clear();
     TELA.print("REGISTRO: OFF");
-    delay(UM_SEGUNDO*6);
+    delay(UM_SEGUNDO*5+275);
     digitalWrite(RELE3, HIGH);
     
   }
