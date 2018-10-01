@@ -111,7 +111,6 @@ void loop() {
     digitalWrite(RELE1, LOW);
     RELE1_ON = true;
     RELE1_ATIVADO_AS = millis();
-    digitalWrite(RELE1, HIGH);
   } else if(BT == 'R') { 
     digitalWrite(RELE1, LOW);
   } else if(BT == 'r') {
