@@ -1,7 +1,7 @@
 #include <DS1307.h>
 #include <LiquidCrystal.h>
 
-//Autores: Jeovane Santos e Joel Vasconcelos, Colegio Dr. Antonio Ricaldi 2018;
+//Autores: Jeovane Santos e Joel Vasconcelos, Colegio Dr. Antonio Ricaldi 2018
 
 //Instanciar objetos
 LiquidCrystal TELA(12, 11, 5, 4, 3, 2);
@@ -79,6 +79,8 @@ void loop() {
   //Pegar horario atual
   String AGORA = RELOGIO.getTimeStr(FORMAT_LONG);
   Serial.println(AGORA);
+
+  //Oque vai ser mostrado na tela
   TELA.clear();
   TELA.print("I: " + boolString(RELE2_ON) + " R: " + boolString(RELE1_ON));
   TELA.setCursor(0,1);
@@ -97,7 +99,7 @@ void loop() {
 
   //Quando a bomba estiver ativa verificar se já passou 1 minuto, para desligar
   if(RELE2_ON) {
-    if(millis() > RELE2_ATIVADO_AS + UM_MINUTO) {
+    if(millis() >= RELE2_ATIVADO_AS + UM_MINUTO) {
       digitalWrite(RELE3, HIGH);
       digitalWrite(RELE2, HIGH);
       RELE3_ON = false;
@@ -117,9 +119,9 @@ void loop() {
     digitalWrite(RELE1, HIGH);
   }
 
-  //Verificar quando a bomba do reservatorio estivar ativa, para desligar depois de 1 minuto
+  //Quando a bomba do reservatorio estiver ativa verificar se já passou 1 minuto, para desligar
   if(RELE1_ON) {
-    if(millis() > RELE1_ATIVADO_AS + UM_MINUTO) {
+    if(millis() >= RELE1_ATIVADO_AS + UM_MINUTO) {
       digitalWrite(RELE1, HIGH);
       RELE1_ON = false;
     }
