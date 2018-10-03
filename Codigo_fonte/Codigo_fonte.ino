@@ -7,6 +7,7 @@
 LiquidCrystal TELA(12, 11, 5, 4, 3, 2);
 DS1307 RELOGIO(A4, A5);
 const int BOIA = 0;
+String DIA_DA_SEMANA;
 
 //Informação dos reles 1 ao 4
 const int RELE1 = 6;
@@ -66,6 +67,8 @@ void setup() {
     RELOGIO.setDate(04, 9, 2018);
     RELOGIO.setTime(17, 51, 00);
   }
+
+  DIA_DA_SEMANA = RELOGIO.getDOWStr(FORMAT_SHORT);
 }
 
 void loop() {
@@ -83,8 +86,8 @@ void loop() {
   //Oque vai ser mostrado na tela
   TELA.clear();
   TELA.print("I: " + boolString(RELE2_ON) + " R: " + boolString(RELE1_ON));
-  TELA.setCursor(0,1);
-  TELA.print(AGORA + 'h');
+  TELA.setCursor(3,1);
+  TELA.print(AGORA + ' ' + DIA_DA_SEMANA);
 
   //Irrigação = RELE2, Solenoide = RELE3
   if(AGORA == "07:00:00" || AGORA == "17:00:00" || BT == 'I') {
